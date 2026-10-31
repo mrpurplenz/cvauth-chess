@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cvauth-chess"
+version = "0.1.0"
+description = "Terminal chess over amateur radio AX.25 networks, using Python, Blessed and CVAuth."
+requires-python = ">=3.10"
+dependencies = [
+    "blessed>=1.20",
+    "python-chess>=1.999",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
