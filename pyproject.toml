@@ -12,6 +12,9 @@ dependencies = [
     "python-chess>=1.999",
 ]
 
+[project.scripts]
+cvauth-chess = "cvauth_chess.main:main"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
