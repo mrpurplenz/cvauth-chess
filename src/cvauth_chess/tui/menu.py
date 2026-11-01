@@ -1,5 +1,7 @@
 from .splash import draw_splash, BANNER
-
+from .local_setup import run_local_setup
+from .board import run_board
+from .display_settings import run_display_settings
 
 def show_message(term, title, message):
     """Display a temporary screen and wait for a keypress."""
@@ -12,14 +14,15 @@ def show_message(term, title, message):
 
     term.inkey()
 
-
 def start_local_game(term):
-    """Launch a local chess game."""
-    show_message(
-        term,
-        "LOCAL GAME",
-        "Chess board and Stockfish integration coming next!",
-    )
+    """Configure and launch a local chess game."""
+
+    settings = run_local_setup(term)
+
+    if settings is None:
+        return
+
+    run_board(term, settings)
 
 
 def start_radio_game(term):
@@ -47,11 +50,9 @@ def load_saved_game(term):
 
 
 def show_settings(term):
-    show_message(
-        term,
-        "SETTINGS",
-        "Application settings coming soon.",
-    )
+    """Open application display settings."""
+
+    run_display_settings(term)
 
 
 def run_menu(term):
